@@ -1,22 +1,32 @@
 package fr.training.BankingSystem;
 
 public class Account {
-    public int id;
+
+    public String id;
     public int amount;
+    public
 
-    public static void main(String[] args) {
+
+    Account(String id){
+        this.id = id;
+    }
+
+    public void deposit(float transferAmount){ // faire un dépot sur le compte
+        amount +=transferAmount;
+    }
+    public void withdraw(float transferAmount){ // faire un retrait sur le compte
 
     }
-    public void deposit(){
+    public float getAmount(){ // obtenir la valeur du solde
 
     }
-    public void withdraw(){
+    public void showAmount(){ // afficher le solde
 
     }
-    public float getAmount(){
-
+    public void transfer (float transferAmount, Account destinataire){
+        withdraw(transferAmount);
+        destinataire.deposit(transferAmount);
     }
-    public void showAmount(){
 
-    }
+
 }
