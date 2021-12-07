@@ -1,23 +1,34 @@
 package bank;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class BankAccount {
-    private int id;
-    private int amount;
+    private static final AtomicInteger count = new AtomicInteger(0);
+    protected final int id;
+    protected float balance;
 
+    BankAccount(int initBalance){
+        this.balance = initBalance;
+        this.id = count.incrementAndGet();
+    }
     BankAccount(){
-
+        this.balance = 0;
+        this.id = count.incrementAndGet();
     }
 
-    private void deposit (){
-
+    protected void deposit (int value){
+        this.balance += value;
     }
 
-    private void withDraw(){
-
+    protected void withDraw(int value){
+        this.balance -= value;
     }
 
-    private void seeAmount(){
-        
+    public String toString(){
+        return "Account n" + this.id + " with balance " + this.balance;
+    }
+    protected float seeBalance(){
+        return this.balance;
     }
 
 }
